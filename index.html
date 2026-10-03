@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ABP Journals - Academic Books and Periodicals</title>
+<style>
+:root{--navy:#06295f;--teal:#079fa6;--ink:#0a2859}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+.wrap{max-width:1395px;margin:auto;padding:0 30px}
+.topbar{height:34px;background:var(--navy);color:#fff;font-size:12px}
+.topbar .wrap{height:34px;display:flex;align-items:center;justify-content:space-between}
+.top-left,.top-right{display:flex;gap:20px;align-items:center}
+.mainnav{height:95px;background:#fff;border-bottom:1px solid #eee}
+.nav{height:95px;display:flex;align-items:center;gap:38px}
+.logo{display:flex;align-items:center;gap:12px;min-width:365px;text-decoration:none}
+.logo-mark{width:66px;height:66px;border:3px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-size:27px;font-weight:900;position:relative}
+.logo-mark:after{content:"✚";font-size:17px;color:var(--teal);position:absolute;top:3px}
+.logo-title{font-family:Georgia,serif;font-size:29px;font-weight:700;color:#123c78;white-space:nowrap}
+.logo-sub{display:block;font-size:13px;letter-spacing:.4px;color:#078d98;margin-top:2px}
+.links{display:flex;align-items:center;gap:25px;margin-left:auto}
+.links a{color:#071f4e;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap}
+.submit{background:#082a60;color:#fff!important;padding:13px 17px;border-radius:5px}
+.search{font-size:22px}
+.hero{height:335px;position:relative;overflow:hidden;background:linear-gradient(90deg,#062a61,#0a3975 48%,#0e6da4);color:#fff}
+.hero:after{content:"DNA   ◇   ✚   ♡   ◇";position:absolute;right:6%;top:35px;font-size:48px;letter-spacing:8px;color:#8cecf0;opacity:.33;transform:rotate(-8deg)}
+.hero-inner{height:100%;display:flex;align-items:center;position:relative}
+.hero-copy{width:48%;padding-left:40px}
+.hero h1{font-family:Georgia,serif;font-size:38px;line-height:1.05;margin:0 0 7px}
+.hero h1 span{display:block;color:#16c3c6;font-family:cursive;font-size:37px;margin:4px 0}
+.hero p{font-size:14px;line-height:1.65;max-width:520px;margin:14px 0 20px}
+.actions{display:flex;gap:28px}
+.btn{display:inline-block;text-decoration:none;padding:13px 22px;border-radius:4px;font-size:13px;font-weight:800}
+.primary{background:#0aa7ad;color:#fff}
+.secondary{border:1px solid #fff;color:#fff}
+.slider{position:absolute;left:22px;top:148px;width:42px;height:42px;border-radius:50%;background:#001a3e;color:#fff;border:0;font-size:26px}
+.slider.r{left:auto;right:22px}
+.dots{position:absolute;bottom:15px;left:50%;display:flex;gap:12px}
+.dots i{width:11px;height:11px;border-radius:50%;background:#fff}
+.dots i.active{background:#08a7ad}
+.journal-section{padding:8px 0 15px}
+.heading{text-align:center;font-family:Georgia,serif;font-size:26px;color:#0a3168;margin:0 0 14px}
+.heading:before,.heading:after{content:"";display:inline-block;width:88px;border-top:1px solid #d7e0e8;vertical-align:middle;margin:0 15px}
+.journal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.journal{background:#fff;border:1px solid #e7ebef;border-radius:8px;min-height:195px;padding:17px 20px;box-shadow:0 3px 13px #001b3a12}
+.jtop{display:flex;gap:16px;align-items:flex-start}
+.jicon{width:66px;height:66px;border-radius:50%;background:#0b356f;color:#fff;display:grid;place-items:center;font-size:30px;flex:none}
+.journal:nth-child(even) .jicon{background:#0ba2a8}
+.journal h3{font-size:15px;line-height:1.25;margin:6px 0;color:#09295e}
+.journal p{font-size:13px;line-height:1.35;margin:16px 0}
+.view{display:block;width:max-content;margin:12px auto 0;background:#082b61;color:#fff;padding:9px 20px;border-radius:3px;text-decoration:none;font-size:12px;font-weight:800}
+.journal:nth-child(even) .view{background:#0aa2a8}
+.features{background:#f5f7f9;border-top:1px solid #e4e9ef;border-bottom:1px solid #e4e9ef;padding:19px 0}
+.feature-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.feature{display:flex;gap:12px;padding:0 22px;border-right:1px solid #aab4c0;align-items:center}
+.feature:last-child{border:0}
+.fi{font-size:29px;color:#079aa4}
+.feature b{display:block;font-size:12px;color:#0a2c60;margin-bottom:5px}
+.feature span{font-size:11px;color:#263b59;line-height:1.3}
+.footer{background:#062a61;color:#fff;padding:20px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1.5fr 1.1fr 1.1fr 1.1fr;gap:28px}
+.footer h4{font-size:13px;margin:0 0 13px}
+.footer p,.footer li,.footer a{font-size:11px;line-height:1.55;color:#fff}
+.footer a{text-decoration:none}
+.footer ul{padding:0;margin:0;list-style:none}
+.footer li{margin:5px 0}
+.newsletter input{padding:11px;border:0;width:75%;border-radius:4px 0 0 4px}
+.newsletter button{padding:11px 13px;border:0;background:#0aa4aa;color:#fff;font-weight:800}
+.copyright{border-top:1px solid #36527c;margin-top:18px;padding:10px 0;display:flex;justify-content:space-between;font-size:11px}
+@media(max-width:1000px){
+.links{display:none}.journal-grid{grid-template-columns:repeat(2,1fr)}
+.feature-grid{grid-template-columns:repeat(3,1fr)}
+.footer-grid{grid-template-columns:repeat(2,1fr)}
+.hero-copy{width:65%}
+}
+@media(max-width:650px){
+.topbar{display:none}.mainnav,.nav{height:75px}
+.logo-title{font-size:20px}.logo-sub{font-size:9px}
+.logo-mark{width:48px;height:48px;font-size:19px}
+.hero{height:auto;min-height:410px}
+.hero-copy{width:100%;padding:45px 20px}
+.hero h1{font-size:30px}
+.journal-grid,.footer-grid{grid-template-columns:1fr}
+.feature-grid{grid-template-columns:1fr 1fr}
+.feature{padding:8px}
+.copyright{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div class="wrap">
+<div class="top-left">✉ editor@abpjournals.com &nbsp;&nbsp; ☎ +91 98765 43210</div>
+<div class="top-right">FAQs | Careers | Sitemap &nbsp; f &nbsp; ● &nbsp; ♥ &nbsp; in &nbsp; ▶</div>
+</div>
+</div>
+
+<header class="mainnav">
+<div class="wrap nav">
+<a class="logo" href="#home">
+<span class="logo-mark">⚕</span>
+<span>
+<span class="logo-title">ABP JOURNALS</span>
+<span class="logo-sub">ACADEMIC BOOKS AND PERIODICALS</span>
+</span>
+</a>
+
+<nav class="links">
+<a href="#home">HOME</a>
+<a href="#about">ABOUT US⌄</a>
+<a href="#journals">JOURNALS⌄</a>
+<a href="#author">AUTHOR GUIDELINES⌄</a>
+<a href="#editorial">EDITORIAL BOARD</a>
+<a href="#current">CURRENT ISSUE</a>
+<a href="#archives">ARCHIVES</a>
+<a href="#contact">CONTACT</a>
+<a class="submit" href="#contact">➤ SUBMIT MANUSCRIPT</a>
+<span class="search">⌕</span>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="wrap hero-inner">
+<div class="hero-copy">
+
+<h1>
+Advancing Research
+<span>Through</span>
+Quality Publications
+</h1>
+
+<p>
+ABP Journals is an international, peer-reviewed, open access publisher committed to publishing high-quality medical, pharmaceutical and health sciences research.
+</p>
+
+<div class="actions">
+<a class="btn primary" href="#contact">▣ &nbsp; SUBMIT YOUR MANUSCRIPT</a>
+<a class="btn secondary" href="#journals">◉ &nbsp; BROWSE JOURNALS</a>
+</div>
+
+</div>
+
+<button class="slider">‹</button>
+<button class="slider r">›</button>
+
+<div class="dots">
+<i></i><i class="active"></i><i></i><i></i>
+</div>
+
+</div>
+</section>
+
+<section class="journal-section" id="journals">
+<div class="wrap">
+<h2 class="heading">OUR JOURNALS</h2>
+
+<div class="journal-grid">
+
+<article class="journal">
+<div class="jtop">
+<div class="jicon">♡</div>
+<h3>Global Journal of Clinical Medicine and Healthcare (GJCMH)</h3>
+</div>
+<p>Publishes high quality clinical and healthcare research for the advancement of medical science and patient care.</p>
+<a class="view" href="#contact">VIEW JOURNAL</a>
+</article>
+
+<article class="journal">
+<div class="jtop">
+<div class="jicon">⚗</div>
+<h3>International Journal of Pharmacy and Pharmaceutical Research (IJPPR)</h3>
+</div>
+<p>Focuses on pharmaceutical sciences, drug discovery, development and pharmacy practice research.</p>
+<a class="view" href="#contact">VIEW JOURNAL</a>
+</article>
+
+<article class="journal">
+<div class="jtop">
+<div class="jicon">♙</div>
+<h3>Journal of Nursing and Allied Health Sciences (JNAHS)</h3>
+</div>
+<p>Publishes research on nursing, allied health and healthcare education for improved health outcomes.</p>
+<a class="view" href="#contact">VIEW JOURNAL</a>
+</article>
+
+<article class="journal">
+<div class="jtop">
+<div class="jicon">◎</div>
+<h3>International Journal of Public Health Research (IJPHR)</h3>
+</div>
+<p>Addresses public health issues and promotes global health through quality research and evidence.</p>
+<a class="view" href="#contact">VIEW JOURNAL</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="features">
+<div class="wrap feature-grid">
+
+<div class="feature"><div class="fi">▣</div><div><b>Peer Reviewed</b><span>Double blind peer review ensures quality.</span></div></div>
+
+<div class="feature"><div class="fi">♙</div><div><b>Open Access</b><span>All articles are freely accessible worldwide.</span></div></div>
+
+<div class="feature"><div class="fi">doi</div><div><b>DOI for Every Article</b><span>Every published article gets a unique DOI.</span></div></div>
+
+<div class="feature"><div class="fi">◷</div><div><b>Fast Publication</b><span>Quick editorial process and timely publication.</span></div></div>
+
+<div class="feature"><div class="fi">⬡</div><div><b>Ethical Publishing</b><span>We follow COPE guidelines and publication ethics.</span></div></div>
+
+<div class="feature"><div class="fi">▤</div><div><b>Digital Archiving</b><span>Articles are archived for long-term preservation.</span></div></div>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap" style="padding:25px 30px">
+<div style="font-size:15px;font-weight:700;color:#0a3168">
+Subscribe journals and send your enquiry to Academic Books and Periodicals.
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="wrap footer-grid">
+
+<div>
+<h4>ABOUT ABP JOURNALS</h4>
+<p>ABP Journals is an imprint of Academic Books and Periodicals. We publish peer-reviewed, open access journals in the fields of medicine, pharmacy, nursing and public health.</p>
+<a href="#about" style="color:#0bc0c0;font-weight:800">READ MORE →</a>
+</div>
+
+<div>
+<h4>QUICK LINKS</h4>
+<ul>
+<li>• About Us</li>
+<li>• Editorial Board</li>
+<li>• Author Guidelines</li>
+<li>• Submit Manuscript</li>
+<li>• Publication Ethics</li>
+<li>• Peer Review Process</li>
+<li>• APC & Policies</li>
+<li>• Contact Us</li>
+</ul>
+</div>
+
+<div>
+<h4>FOR AUTHORS</h4>
+<ul>
+<li>• Instructions for Authors</li>
+<li>• Manuscript Template</li>
+<li>• Ethical Guidelines</li>
+<li>• Copyright Policy</li>
+</ul>
+</div>
+
+<div>
+<h4>CONTACT US</h4>
+<p>⌖ Academic Books and Periodicals<br>New Delhi, India</p>
+<p>✉ editor@abpjournals.com</p>
+<p>☎ +91 98765 43210</p>
+<p>● &nbsp; ● &nbsp; in &nbsp; ▶</p>
+</div>
+
+<div class="newsletter">
+<h4>NEWSLETTER</h4>
+<p>Subscribe to get updates on new issues and announcements.</p>
+<div>
+<input placeholder="Your Email Address">
+<button>SUBSCRIBE</button>
+</div>
+</div>
+
+</div>
+
+<div class="wrap copyright">
+<span>© 2025 ABP Journals | All Rights Reserved</span>
+<span>Privacy Policy | Terms of Use | Refund Policy</span>
+</div>
+
+</footer>
+
+</body>
+</html>
